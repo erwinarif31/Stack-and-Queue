@@ -1,14 +1,15 @@
-// Pada java terdapat library untuk mengimplementasikan Stack dengan menggunakan java.util.Stack.
+
+// Pada java terdapat library untuk mengimplementasikan Queue dengan menggunakan java.util.Queue.
 // Namun, pada file ini Stack dibuat secara manual.
 
-public class Stack {
+public class Queue {
     private Object[] arr;
 
-    Stack() {
+    public Queue() {
         this.arr = new Object[0];
     }
 
-    public Object push(Object item) {
+    public Object offer(Object item) {
         Object[] newArr = new Object[arr.length + 1];
         for (int i = 0; i < arr.length; i++) {
             newArr[i] = arr[i];
@@ -19,7 +20,7 @@ public class Stack {
         return item;
     }
 
-    public Object pop() {
+    public Object poll() {
         if (arr.length == 0) {
             return "Stack is empty";
         }
@@ -34,11 +35,7 @@ public class Stack {
     }
 
     public void peek() {
-        if (arr.length > 0) {
-            System.out.println(this.arr[arr.length - 1]);
-        } else {
-            System.out.println("Stack is empty");
-        }
+        System.out.println(this.arr[0]);
     }
 
     public int size() {
@@ -46,9 +43,6 @@ public class Stack {
     }
 
     public String toString() {
-        if (arr.length == 0) {
-            return "Stack is empty.";
-        }
         String str = "[";
         for (int i = 0; i < arr.length; i++) {
             if (i == arr.length - 1) {
@@ -64,15 +58,15 @@ public class Stack {
 
 class Main {
     public static void main(String[] args) {
-        Stack test = new Stack();
+        Queue test = new Queue();
 
-        test.push("aku ingin ke meikarta"); // Menambah item ke paling atas
-        test.push(true);
-        test.push(3);
-        test.push(4);
-        test.push(6);
+        test.offer("aku ingin ke meikarta"); // Menambah item ke paling atas
+        test.offer(true);
+        test.offer(3);
+        test.offer(4);
+        test.offer(6);
 
-        test.pop(); // Mengembalikan item paling atas dan menghapus item dari stack. Return: 6
+        test.poll(); // Mengembalikan item paling atas dan menghapus item dari stack. Return: 6
         test.peek(); // Mengembalikan item paling atas tanpa menghapus item dari stack. Return: 4
 
         System.out.println(test); // [aku ingin ke meikarta, true, 3, 4]
