@@ -22,20 +22,25 @@ public class Queue {
 
     public Object poll() {
         if (arr.length == 0) {
-            return "Stack is empty";
+            return "Queue is empty";
         }
+
         Object[] newArr = new Object[arr.length - 1];
         for (int i = 0; i < newArr.length; i++) {
-            newArr[i] = arr[i];
+            newArr[i] = arr[i + 1];
         }
 
         this.arr = newArr;
 
-        return arr[arr.length - 1];
+        return arr[0];
     }
 
     public void peek() {
-        System.out.println(this.arr[0]);
+        if (arr.length == 0) {
+            System.out.println("Queue is empty.");
+        } else {
+            System.out.println(this.arr[0]);
+        }
     }
 
     public int size() {
@@ -43,6 +48,9 @@ public class Queue {
     }
 
     public String toString() {
+        if (arr.length == 0) {
+            return "Queue is empty.";
+        }
         String str = "[";
         for (int i = 0; i < arr.length; i++) {
             if (i == arr.length - 1) {
@@ -56,20 +64,22 @@ public class Queue {
 
 }
 
-class Main {
+class Antrian {
     public static void main(String[] args) {
-        Queue test = new Queue();
+        Queue antrian = new Queue();
 
-        test.offer("aku ingin ke meikarta"); // Menambah item ke paling atas
-        test.offer(true);
-        test.offer(3);
-        test.offer(4);
-        test.offer(6);
+        antrian.offer("aku ingin ke meikarta"); // Menambah item ke paling atas
+        antrian.offer(true);
+        antrian.offer(3);
+        antrian.offer(4);
+        antrian.offer(6);
 
-        test.poll(); // Mengembalikan item paling atas dan menghapus item dari stack. Return: 6
-        test.peek(); // Mengembalikan item paling atas tanpa menghapus item dari stack. Return: 4
+        antrian.poll(); // Mengembalikan item paling atas dan menghapus item dari stack. Delete: "aku
+                        // ingin ke meikarta"
+        antrian.poll(); // Delete: true
+        antrian.peek(); // Mengembalikan item paling atas tanpa menghapus item dari stack. Return: 3
 
-        System.out.println(test); // [aku ingin ke meikarta, true, 3, 4]
+        System.out.println(antrian); // [3, 4, 6]
 
     }
 }
