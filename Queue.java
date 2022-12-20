@@ -74,10 +74,10 @@ class Antrian {
         antrian.offer(4);
         antrian.offer(6);
 
-        antrian.poll(); // Mengembalikan item paling atas dan menghapus item dari stack. Delete: "aku
+        antrian.poll(); // Mengembalikan item paling bawah dan menghapus item dari queue. Delete: "aku
                         // ingin ke meikarta"
         antrian.poll(); // Delete: true
-        antrian.peek(); // Mengembalikan item paling atas tanpa menghapus item dari stack. Return: 3
+        antrian.peek(); // Mengembalikan item paling bawah tanpa menghapus item dari queue. Return: 3
 
         System.out.println(antrian); // [3, 4, 6]
 
