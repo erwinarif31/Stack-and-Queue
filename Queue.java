@@ -1,6 +1,6 @@
 
 // Pada java terdapat library untuk mengimplementasikan Queue dengan menggunakan java.util.Queue.
-// Namun, pada file ini Stack dibuat secara manual.
+// Namun, pada file ini Queue dibuat secara manual.
 
 public class Queue {
     private Object[] arr;
